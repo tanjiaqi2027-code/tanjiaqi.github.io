@@ -382,7 +382,7 @@
 			for (let i = 0; i < lim.length; ++i)
 				if (lim[i].flag)
 					information.push({ id: i, score: lim[i].score, level: lim[i].level });
-			document.getElementById("code").innerHTML = `/** @param {OIerDb} db */
+			document.getElementById("code").textContent = `/** @param {OIerDb} db */
 export default (db) =>
 {
 	return db.oiers.filter((oier) =>
@@ -409,7 +409,7 @@ export default (db) =>
 		{
 			try
 			{
-				await navigator.clipboard.writeText(document.getElementById("code").innerHTML);
+				await navigator.clipboard.writeText(document.getElementById("code").textContent);
 				showError("代码已复制到剪贴板", "green");
 			}
 			catch (e)
