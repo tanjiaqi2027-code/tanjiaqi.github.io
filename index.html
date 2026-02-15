@@ -382,10 +382,10 @@
 			for (let i = 0; i < lim.length; ++i)
 				if (lim[i].flag)
 					information.push({ id: i, score: lim[i].score, level: lim[i].level });
-			document.getElementById("code").textContent = `/** @param {OIerDb} db */
-export default (db) =>
+			document.getElementById("code").innerHTML = `/** @param {OIerDb} db */
+export default (db) =&gt
 {
-	return db.oiers.filter((oier) =>
+	return db.oiers.filter((oier) =&gt
 	{
 		const information = JSON.parse(\`${JSON.stringify(information)}\`);
 		let res = true;
@@ -401,7 +401,7 @@ export default (db) =>
 				res = false;
 		}
 		return res;
-	}).sort((a, b) => a.records.length - b.records.length);
+	}).sort((a, b) =&gt a.records.length - b.records.length);
 };`;
 		}
 
@@ -409,7 +409,7 @@ export default (db) =>
 		{
 			try
 			{
-				await navigator.clipboard.writeText(document.getElementById("code").textContent);
+				await navigator.clipboard.writeText(document.getElementById("code").innerText);
 				showError("代码已复制到剪贴板", "green");
 			}
 			catch (e)
